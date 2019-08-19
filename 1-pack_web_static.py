@@ -10,6 +10,6 @@ def do_pack():
     try:
         local("mkdir -p versions")
         local("tar -cvzf versions/web_static_{}.tgz ./web_static".format(date))
-        return "/versions/web_static_{}".format(date)
+        return "./versions/web_static_{}.tgz".format(date)
     except:
         return None
