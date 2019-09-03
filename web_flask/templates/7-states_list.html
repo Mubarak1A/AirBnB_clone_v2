@@ -5,10 +5,12 @@
     </HEAD>
     <BODY>
         <H1>States</H1>
+	{% if mydict|length != 0 %}
         <UL>
 	    {% for value in mydict.values()|list|sort(attribute='name') %}
             <LI>{{ value.id }}: <B>{{ value.name }}</B></LI>
 	    {% endfor %}
         </UL>
+	{% endif %}
     </BODY>
 </HTML>
