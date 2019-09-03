@@ -6,7 +6,7 @@
     <BODY>
         <H1>States</H1>
         <UL>
-	    {% for value in mydict.values()|list|sort(attribute='name') if value.__class__.__name__ == 'State' %}
+	    {% for value in mydict.values()|list|sort(attribute='name') %}
             <LI>{{ value.id }}: <B>{{ value.name }}</B></LI>
 	    {% endfor %}
         </UL>
