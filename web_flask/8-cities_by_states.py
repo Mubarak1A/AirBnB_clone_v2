@@ -13,9 +13,10 @@ def index():
     my_dict = storage.all()
     return render_template('8-cities_by_states.html', mydict=my_dict)
 
-app.run(host='0.0.0.0')
-
 
 @app.teardown_appcontext
-def teardown():
+def teardown(tmp):
     storage.close()
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0')
