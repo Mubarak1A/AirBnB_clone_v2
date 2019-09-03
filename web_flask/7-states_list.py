@@ -14,8 +14,8 @@ if __name__ == "__main__":
     def index():
         return render_template('7-states_list.html', mydict=my_dict)
 
+    app.run(host='0.0.0.0')
+
     @app.teardown_appcontext
     def teardown():
         storage.close()
-
-    app.run(host='0.0.0.0')
