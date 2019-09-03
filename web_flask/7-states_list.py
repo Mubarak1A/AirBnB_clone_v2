@@ -6,6 +6,7 @@ from models import storage
 
 app = Flask(__name__)
 
+
 @app.route('/states_list', strict_slashes=False)
 def index():
     my_dict = storage.all('State')
@@ -13,7 +14,7 @@ def index():
 
 
 @app.teardown_appcontext
-def teardown(tmp):
+def teardown():
     storage.close()
 
 if __name__ == "__main__":
