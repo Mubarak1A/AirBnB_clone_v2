@@ -9,10 +9,11 @@ if __name__ == "__main__":
 
     @app.route('/', strict_slashes=False)
     def index():
+        """ dummy root return """
         return "Hello HBNB!"
-
 
     @app.route('/hbnb', strict_slashes=False)
     def index2():
+        """ return different URL """
         return "HBNB"
     app.run(host='0.0.0.0')
