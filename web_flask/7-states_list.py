@@ -8,14 +8,14 @@ if __name__ == "__main__":
     from models import storage
 
     app = Flask(__name__)
+    my_dict = storage.all()
+
+    @app.teardown_appcontext
+    def teardown(error):
+        storage.close()
 
     @app.route('/states_list', strict_slashes=False)
     def index():
-        my_dict = storage.all()
         return render_template('7-states_list.html', mydict=my_dict)
 
     app.run(host='0.0.0.0')
-
-    @app.teardown_appcontext
-    def teardown():
-        storage.close()
