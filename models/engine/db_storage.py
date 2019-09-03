@@ -35,9 +35,9 @@ class DBStorage:
         """ this is a comment """
         dict = {}
         if cls:
-            s = self.__session.query(cls).all()
+            s = self.__session.query(eval(cls)).all()
             for val in s:
-                dict.update({"{}.{}".format(cls.__name__, val.id): val})
+                dict.update({"{}.{}".format(cls, val.id): val})
         else:
             for item in self.all_classes:
                 s = self.__session.query(item).all()
@@ -67,4 +67,4 @@ class DBStorage:
         self.__session = S()
 
     def close(self):
-        self.session.close_all()
+        self.__session.close_all()
