@@ -15,6 +15,7 @@ def index():
 
 app.run(host='0.0.0.0')
 
+
 @app.teardown_appcontext
 def teardown():
     storage.close()
