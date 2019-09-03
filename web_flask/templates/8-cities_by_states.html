@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<HTML lang="en">
+    <HEAD>
+        <TITLE>HBNB</TITLE>
+    </HEAD>
+    <BODY>
+        <H1>States</H1>
+        <UL>
+            {% for value in mydict.values()|list|sort(attribute='name') if value.__class__.__name__ == 'State' %}
+            <LI>{{ value.id }}: <B>{{ value.name }}</B>
+	        <UL>
+                        {% for city in value.cities|list|sort(attribute='name') %}
+ 		        <LI>{{ city.id }}: <B>{{ city.name }}</B></LI>
+            	        {% endfor %}
+                </UL>
+	    </LI>
+            {% endfor %}
+        </UL>
+    </BODY>
+</HTML>
