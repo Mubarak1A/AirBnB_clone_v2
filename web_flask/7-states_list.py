@@ -14,7 +14,7 @@ def index():
 
 
 @app.teardown_appcontext
-def teardown():
+def teardown(tmp):
     storage.close()
 
 if __name__ == "__main__":
