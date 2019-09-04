@@ -16,7 +16,7 @@ def index():
     user_dict = storage.all('User')
     return render_template('100-hbnb.html', state_dict=state_dict,
                            amenity_dict=amenity_dict, place_dict=place_dict,
-                           user_dict= user_dict)
+                           user_dict=user_dict)
 
 
 @app.teardown_appcontext
