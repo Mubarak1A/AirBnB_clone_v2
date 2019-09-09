@@ -64,7 +64,7 @@
             <b>Owner:</b> {{ user_dict.get(owner_key).first_name }} {{ user_dict.get(owner_key).last_name }}
           </div>
           <div class="description">
-              {{ place.description|safe }}
+             <p>{{ place.description|safe }}</p>
           </div>
 	</article>
 	{% endfor %}
