@@ -1,10 +1,14 @@
 #!/usr/bin/python3
+''' script (based on the file 3-deploy_web_static.py) that deletes out-of-date archives,
+    using the function do_clean
+'''
 from fabric.api import run, local, put, env
 import datetime
 import os
 
 
 def do_pack():
+    '''generates a .tgz archive from the contents of the web_static folder'''
     now = datetime.datetime.now()
     date = (str(now.year) + str(now.month) + str(now.day) + str(now.hour) +
             str(now.minute) + str(now.second))
@@ -20,6 +24,7 @@ env.hosts = ['35.190.188.208', '35.227.47.184']
 
 
 def do_deploy(archive_path):
+    '''distributes an archive to your web servers'''
     if os.path.exists(archive_path) is False:
         return False
     try:
@@ -40,6 +45,7 @@ def do_deploy(archive_path):
 
 
 def deploy():
+    '''creates and distributes an archive to your web servers'''
     path = do_pack()
     print("este es el path: ", path)
     if path is None:
@@ -48,6 +54,7 @@ def deploy():
 
 
 def do_clean(number=0):
+    '''deletes out-of-date archives'''
     num_files = local("ls -1t versions/ | wc -l", capture=True)
     if number == "0":
         number = "1"
