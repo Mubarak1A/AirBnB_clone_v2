@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 ''' script (based on the file 3-deploy_web_static.py) that deletes out-of-date archives,
-    using the function do_clean
+    using the function do_clean 
 '''
 from fabric.api import run, local, put, env
 import datetime
